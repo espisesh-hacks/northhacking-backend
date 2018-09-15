@@ -1,8 +1,6 @@
 const Server = require('socket.io');
 const io = new Server();
-const IPFS = require('ipfs');
-const node = new IPFS();
-var fs = require('fs');
+const fs = require('fs');
 
 console.log("Starting IPD backend...");
 
