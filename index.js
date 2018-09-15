@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
     socket.on('vmlist', function (data) {
         console.log("vmlist: " + JSON.stringify(data));
         if (verifyUser(data)) {
-            return db[data.username].vms;
+            socket.emit('vmlist', db[data.username].vms);
         }
     });
 
@@ -67,10 +67,11 @@ function createUser(username, password) {
     });
 }
 
-function addVM(baseImageLink, dataHash, auth) {
+function addVM(baseImageLink, dataHash, name, auth) {
     db[auth.username].vms.push({
         hash: dataHash,
-        base_image: baseImageLink
+        base_image: baseImageLink,
+        name: name
     });
     fs.writeFile('data.json', JSON.stringify(db), function (err) {
         if (err) return console.log(err);
