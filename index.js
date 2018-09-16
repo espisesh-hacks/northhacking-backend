@@ -30,7 +30,7 @@ io.on('connection', function (socket) {
     socket.on('addvm', function (data) {
         console.log("addvm: " + JSON.stringify(data));
         if (true) { //verify?
-            addVM(data.baseImage, data.dataHash, data.auth);
+            addVM(data.baseImage, data.dataHash, data.name, data.auth);
         }
     });
 
