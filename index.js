@@ -1,4 +1,3 @@
-const Server = require('socket.io');
 let http = require('http').Server();
 const io = new require('socket.io')(http);
 const fs = require('fs');
@@ -73,6 +72,7 @@ function addVM(baseImageLink, dataHash, name, auth) {
         base_image: baseImageLink,
         name: name
     });
+    console.log("vmafter: " + JSON.stringify(db[auth.username]));
     fs.writeFile('data.json', JSON.stringify(db), function (err) {
         if (err) return console.log(err);
         console.log("File was saved!");
