@@ -1,1 +1,1 @@
-{"username":{"password":"password","vms":[{"hash":"duhh","baseImage":"http://ipdesktop.net:8080/win10.qcow2","name":"SeshVM"}]},"test":{"password":"test","vms":[]},"tests":{"password":"tests","vms":[]}}
+{"username":{"password":"password","vms":[{"hash":"duhh","base_image":"http://ipdesktop.net:8080/win10.qcow2","name":"SeshVM"}]},"test":{"password":"test","vms":[]},"tests":{"password":"tests","vms":[]}}
