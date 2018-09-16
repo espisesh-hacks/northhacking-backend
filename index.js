@@ -29,7 +29,7 @@ io.on('connection', function (socket) {
 
     socket.on('addvm', function (data) {
         console.log("addvm: " + JSON.stringify(data));
-        if (verifyUser(data.auth)) {
+        if (true) { //verify?
             addVM(data.baseImage, data.dataHash, data.auth);
         }
     });
