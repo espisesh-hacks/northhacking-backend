@@ -34,6 +34,11 @@ io.on('connection', function (socket) {
         }
     });
 
+    socket.on('updatevm', function (data) {
+        console.log("updatevm: " + JSON.stringify(data));
+        updateVM(data.name, data.auth, data.hash);
+    });
+
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
@@ -77,4 +82,16 @@ function addVM(baseImageLink, dataHash, name, auth) {
         if (err) return console.log(err);
         console.log("File was saved!");
     });
+}
+
+function updateVM(name, auth, hash) {
+    console.log("updatevm " + name + " " + hash);
+    for (let i in db[auth.username].vms) {
+        let vm = db[auth.username].vms[i];
+        if (vm.name == name) {
+            db[auth.username].vms[i].hash = hash;
+            console.log("updatedvm");
+            break;
+        }
+    }
 }
