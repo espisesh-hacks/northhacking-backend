@@ -45,7 +45,7 @@ http.listen(80, function () {
 });
 
 function verifyUser(object) {
-    console.log("verify: " + db['username'].password + " " + object.password);
+    console.log("verify: " + db[object.username].password + " " + object.password);
 
     if (!db.hasOwnProperty(object.username)) return false;
 
